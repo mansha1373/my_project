@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    
+/* General Styles for the Cart Page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.cart-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Section */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Cart Item Section */
+#cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.cart-item:hover {
+    background-color: #f1f1f1;
+}
+
+.cart-item-img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-item-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.cart-item-info button {
+    padding: 8px 12px;
+    background-color: darkviolet;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width:150px
+}
+
+.cart-item-info button:hover {
+    background-color: rgb(102, 8, 142);
+}
+
+/* Total Price Section */
+#cart-total {
+    text-align: right;
+    font-size: 1.4rem;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+#total-price {
+    color: #e63946;
+}
+
+/* Checkout Button */
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color:darkviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgb(102, 8, 142);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-container {
+        width: 90%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .cart-item-info {
+        width: 100%;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+</style>
+<body>
+    
+
+    <div class="cart-container">
+        
+            <h1>Your Cart</h1>
+            <div class="close"> <a href="index.html" class="fas fa-times"></a></div>
+     
+        <div class="cart">
+        <div id="cart-items">
+        </div>
+            <!-- Cart items will be shown here after initializing IN local storage -->
+        </div>
+        <div id="cart-total">
+            <h3>Total: ₹<span id="total-price">0</span></h3>
+        </div>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        // Load cart from localStorage and display it HERE
+        window.onload = function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            let totalPrice = 0;
+
+            cart.forEach((book, index) => {
+                const bookDiv = document.createElement('div');
+                bookDiv.classList.add('cart-item');
+                bookDiv.innerHTML = `
+                    <img src="${book.imgSrc}" alt="${book.title}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <h3>${book.title}</h3>
+                        <p>${book.author}</p>
+                        <p>${book.price}</p>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(bookDiv);
+                
+               
+                const price = parseFloat(book.price.replace('₹' , '').replace(',', ''));
+                totalPrice += price;
+            });
+
+            document.getElementById('total-price').innerText = totalPrice;
+        };
+
+       
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // remove item from array 
+                        localStorage.setItem('cart', JSON.stringify(cart)); 
+            location.reload(); 
+        }
+       
+        function checkout() {
+            alert('Proceeding to checkout...');
+            window.location.href = "checkout.html";
+        }
+    </script>
+</body>
+</html>

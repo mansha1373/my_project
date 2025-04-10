@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP FORM</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    span{
+      margin-bottom: 5px;
+    }
+    .inputlogin {
+      width: 70%;
+      padding: 8px;
+      margin-bottom: 2px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .label{    
+      
+      padding-right: 30 px;
+    }
+    input .box{
+      left: 50px;
+    }
+    input .gen{
+      padding: 2px;
+    }
+    
+  
+    .valid {
+      border-color: green;
+    }
+    .invalid {
+      border-color: red;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    .success {
+      color: green;
+      font-size: 0.9em;
+    }
+   
+
+    </style>
+</head>
+<body>
+    <div class="login-form-container">
+        <div class="close"> <a href="index.html" class="fas fa-times"></a></div>
+     
+     <form id="advancedForm" >
+         <h3>SIGN UP</h3>
+         <div id="form-group">
+          <span for="username">Username:</span>
+          <input class="inputlogin" type="text" name="username" id="username">
+          <span id="usernameError" class="error"></span>
+          
+        </div>
+        <div id="form-group">
+          <span for="password">Password:</span>
+          <input class="inputlogin" type="password" name="password" id="password">
+          <span id="passwordError" class="error"></span>
+        </div>
+        <div id="form-group">
+          <span for="conpass">Confirm Password:</span>
+          <input class="inputlogin" type="password" name="conpass" id="conpass">
+          <span id="conpassError" class="error"></span>
+        </div>
+
+         
+         <span>D.O.B:</span>
+         <input class="inputlogin" type="date" name="" class="box1" placeholder="" id="date" >
+         <br>
+         <br>
+         <div class="radiobutton">
+             <input class="gen" type="radio" name="gen" id="female">
+             <label class="label" for="female">Female</label>
+             <input class="gen" type="radio" name="gen" id="male">
+             <label class="label" for="male">Male</label>
+         </div>
+         <input type="submit" value="sign in" class="btn">
+
+         <p>already have an account ? <a href="login.html">login</a></p>
+     </form>
+  </div>
+  
+  <script>
+    // Get references to form fields
+    const username = document.getElementById('username');
+    const usernameError = document.getElementById('usernameError');
+    const password = document.getElementById('password');
+    const passwordError = document.getElementById('passwordError');
+    const conpass = document.getElementById('conpass');
+    const conpassError = document.getElementById('conpassError');
+
+    const female = document.getElementById('female');
+    const male = document.getElementById('male');
+    const form = document.getElementById('advancedForm');
+
+    // Event listener to validate fields on input
+    username.addEventListener('input', () => validateUsername());
+    password.addEventListener('input', () => validatePassword());
+    conpass.addEventListener('input', () => validateConfirm());
+   
+    female.addEventListener('change', () => validateGender());
+    male.addEventListener('change', () => validateGender());
+
+    // Event listener to prevent form submission if validation fails
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Check if all validations pass
+        const isFormValid = [
+            validateUsername(),
+            validatePassword(),
+            validateConfirm(),
+            validateGender()
+        ].every(Boolean);
+
+        // If all fields are valid, submit the form
+        if (isFormValid) {
+            alert("Account Created Successfully");
+            window.location.href = "index.html";
+        } else {
+            alert("Please fill in all required fields correctly.");
+        }
+    });
+
+    // Validation functions
+    function validateUsername() {
+        const value = username.value.trim();
+        const regex = /^[a-zA-Z0-9]{3,}$/;
+
+        if (!value) {
+            setError(username, usernameError, "Username is required!");
+            return false;
+        } else if (!regex.test(value)) {
+            setError(username, usernameError, "Username must be 3 characters long and alphanumeric");
+            return false;
+        } else {
+            setSuccess(username, usernameError);
+            return true;
+        }
+    }
+
+    function validatePassword() {
+        const value = password.value.trim();
+        const regex = /^[a-zA-Z0-9]{8,}$/;
+
+        if (!value) {
+            setError(password, passwordError, "Password is required!");
+            return false;
+        } else if (!regex.test(value)) {
+            setError(password, passwordError, "Password must be 8 characters long and alphanumeric");
+            return false;
+        } else {
+            setSuccess(password, passwordError);
+            return true;
+        }
+    }
+
+    function validateConfirm() {
+        const value = conpass.value.trim();
+
+        if (!value) {
+            setError(conpass, conpassError, "Confirm your Password!");
+            return false;
+        } else if (value !== password.value.trim()) {
+            setError(conpass, conpassError, "Passwords do not match!");
+            return false;
+        } else {
+            setSuccess(conpass, conpassError);
+            return true;
+        }
+    }
+
+    
+    function validateGender() {
+        if (!female.checked && !male.checked) {
+            alert("Please select a gender.");
+            return false;
+        }
+        return true;
+    }
+
+    // Helper functions to manage error and success states
+    function setError(input, errorElement, message) {
+        input.classList.add('invalid');
+        input.classList.remove('valid');
+        errorElement.textContent = message;
+    }
+
+    function setSuccess(input, errorElement) {
+        input.classList.add('valid');
+        input.classList.remove('invalid');
+        errorElement.textContent = '';
+    }
+</script>
+   
+  
+
+</body>
+</html>
