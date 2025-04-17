@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            
+            <!-- Left Side: Image and Buttons -->
+            <div class="lightbox-image">
+                <img id="lightbox-img" src="" alt="Product Image">
+                <div class="lightbox-actions">
+                    <button class="btn" id="add-to-cart">
+                        <div id="cart-button" onclick="addToCart()">Add to cart</div>
+                    
+                    <script>
+                       
+                        let cartCount = 0;
+                    
+                        function updateCartCount() {
+                            document.getElementById("cart-count-header").textContent = cartCount;
+                        }
+                        
+                        function addToCart() {
+                            cartCount++;
+                            
+                            updateCartCount();
+    
+                        }
+
+                    </script>
+                    </button>
+                    <button class="btn" id="buy-now">Buy Now</button>
+                </div>
+            </div>
+            
+            <!-- Right Side: Book Details -->
+            <div class="lightbox-details">
+                <h2 id="lightbox-title">Book Title</h2>
+                <p id="lightbox-author">Author's Name</p>
+                <p id="lightbox-description">Description of the book goes here...</p>
+                
+                <div class="genres">
+                  <p><strong>Genres:</strong></p>
+                  <div id="genre-list" class="genre-list"> </div>
+                  
+              </div>
+      <br>
+                <!-- Rating Section -->
+                <div class="star-rating">
+                  <input type="radio" name="rating" id="star5" value="5" required>
+                  <label for="star5">★</label>
+                  <input type="radio" name="rating" id="star4" value="4">
+                  <label for="star4">★</label>
+                  <input type="radio" name="rating" id="star3" value="3">
+                  <label for="star3">★</label>
+                  <input type="radio" name="rating" id="star2" value="2">
+                  <label for="star2">★</label>
+                  <input type="radio" name="rating" id="star1" value="1">
+                  <label for="star1">★</label>
+                </div>
+                
+                <p id="lightbox-price">Price</p>
+            </div>
+        </div>
+      </div>
+    <header class="wishlist-header">
+        <h1>My Wishlist</h1>
+        <span class="close-header-btn" onclick="redirectToHome()">×</span>
+    </header>
+    <main class="wishlist-container">
+        <div class="wishlist-item">
+           <a href="#" onclick="openLightbox('powerless', 
+           'Lauren Roberts',
+           'She is the very thing he’s spent his whole life hunting. He is the very thing she’s spent her whole life pretending to be. Only the extraordinary belong in the kingdom of Ilya—the exceptional, the empowered, the Elites. Surviving in the slums as an Ordinary is no simple task, and Paedyn knows this better than most. When Paeydn unsuspectingly saves one of Ilyas princes, she finds herself thrown into the Purging Trials. The brutal competition exists to showcase the Elites’ powers—the very thing Paedyn lacks. If the Trials and the opponents within them don’t kill her, the prince she’s fighting feelings for certainly will if he discovers what she is—completely Ordinary.',
+           '600₹ (Limited Paperback)', 
+           'images/powerless.jfif',
+           'Fiction &nbsp Romance &nbsp Young Adult &nbsp Magic &nbsp Fantasy')"> 
+            <img src="images/powerless.jfif" alt="Item Image"></a>
+            <div class="item-details">
+                <h3>Powerless</h3>
+                <p>Lauren Robert</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+        <div class="wishlist-item">
+            <a href="#" onclick="openLightbox('God Of War', 
+            'Rina Kent',
+            'I fell for the him. It happened back when I was a clueless girl. But he ruthlessly broke my heart and trapped it in a jar. Since then, I’ve sworn to hate him to the end of my days. Eli King might be a savage devil, but I’m out of his way. And league. That is until I wake up in a hospital and find him holding my hand. He tells me the words that change my life forever. “We got married two years ago, Mrs. King.” So I set out to investigate how I landed myself into this marriage. Turns out, my memories are darker than my present. I thought I could handle his soulless eyes and cold shoulder. I thought wrong. Nothing can stop my husband. Not the secrets surrounding us. Not the hatred between us. Not for me.',
+            '400₹ (Paperback)',
+            'images/god.jfif',
+            'Dark &nbsp Romance &nbsp Fiction &nbsp Adult &nbsp Contemporary &nbsp Mental Health')">
+                <img src="images/god.jfif" alt="Item Image"></a>
+            <div class="item-details">
+                <h3>God Of War</h3>
+                <p>Rina Kent</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+        <div class="wishlist-item">
+            <a href="#" onclick="openLightbox('Maddest Obsession', 
+            'Danielle Lori',
+            'She fears the dark. He rules it. Her heels too tall. She laughs too loudly, eats without decorum, and mixes up most sayings in the book. Little do most know it’s just a sparkly disguise, there to hide one panic attack at a time. Nobody can crack Gianna’s facade . . . no one anyway, until he comes along. Nowhere in Christian’s plans had he ever prepared for Gianna. She’s chaos embodied, not his type, and married, but none of that can stop his eyes from following her wherever she goes. All along, she doesn’t even know that she’s his—his frustration, his fascination. His maddest obsession.',
+            '699₹ (Limited Paperback)', 
+            'images/maddest_obsession.jfif',
+            'Fiction &nbsp Dark &nbsp Young Adult & Romance &nbsp Crime')">
+            <img src="images/maddest_obsession.jfif" alt="Item Image"></a>
+            <div class="item-details">
+                <h3>Maddest Obsession</h3>
+                <p>Danielle Lori</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+        <div class="wishlist-item">
+            <a  onclick="openLightbox('The Lightning Theif', 
+            'Rick Riordan',
+            'Percy Jackson is a good kid, but he can’t seem to focus on his schoolwork or control his temper. And lately, being away at boarding school is only getting worse - Percy could have sworn his pre-algebra teacher turned into a monster and tried to kill him. When Percy’s mom finds out, she knows it’s time that he knew the truth about where he came from, and that he go to the one place he’ll be safe. She sends Percy to Camp Half Blood, a summer camp for demigods (on Long Island), where he learns that the father he never knew is Poseidon, God of the Sea. Soon a mystery unfolds and together with his friends—one a satyr and the other the demigod daughter of Athena - Percy sets out on a quest across the United States to reach the gates of the Underworld (located in a recording studio in Hollywood) and prevent a catastrophic war between the gods.',
+            '500₹ (Paperback)', 
+            'images/lightning.jfif',
+            'Fiction &nbsp Mythology &nbsp Adventure &nbsp Children &nbsp Fantasy')">
+            <img src="images/lightning.jfif" alt="Item Image"></a>
+            <div class="item-details">
+                <h3>The Lightning Theif</h3>
+                <p>Rick Riordan</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+        <div class="wishlist-item">
+            <a  href="#" onclick="openLightbox('The Girl Who Drank Moon', 
+            'Kelly Barnhill',
+            'Every year, the people of the Protectorate leave a baby as an offering to the witch who lives in the forest. They hope this sacrifice will keep her from terrorizing their town. But the witch in the forest, Xan, is kind and gentle. She shares her home with a wise Swamp Monster named Glerk and a Perfectly Tiny Dragon, Fyrian. Xan rescues the abandoned children and deliver them to welcoming families on the other side of the forest, nourishing the babies with starlight on the journey. When Luna approaches her thirteenth birthday, her magic begins to emerge on schedule--but Xan is far away. Meanwhile, a young man from the Protectorate is determined to free his people by killing the witch. Soon, it is up to Luna to protect those who have protected her--even if it means the end of the loving, safe world she’s always known.',
+            '499₹ (Paperback)',
+            'images/moon.jfif',
+            'Fiction &nbsp Children &nbsp Magic &nbsp Dragon &nbsp Witches')">
+            <img src="images/moon.jfif" alt="Item Image"></a>
+            <div class="item-details">
+                <h3>The Girl who Drank The Moon</h3>
+                <p>Kelly Bar</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        function openLightbox(title, author, description, price, imgSrc, genres) {
+         
+          document.getElementById('lightbox-title').innerText = title;
+          document.getElementById('lightbox-author').innerText = "by " + author;
+          document.getElementById('lightbox-description').innerText = description;
+          document.getElementById('lightbox-price').innerText = price;
+          document.getElementById('lightbox-img').src = imgSrc;
+          document.getElementById('genre-list').innerText = genres;
+      
+         
+          document.getElementById('lightbox').style.display = 'flex';
+      }
+      
+     
+      function closeLightbox() {
+          document.getElementById('lightbox').style.display = 'none';
+      }
+      
+     
+      document.getElementById('add-to-cart').addEventListener('click', function() {
+          alert('Added to cart');
+          closeLightbox(); 
+      });
+      
+      document.getElementById('buy-now').addEventListener('click', function() {
+          alert('Proceeding to checkout');
+          closeLightbox();
+      });
+      
+    
+      </script>
+      <script>
+      document.querySelectorAll('.remove-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            
+            const wishlistItem = this.closest('.wishlist-item');
+            
+            wishlistItem.remove();
+        });
+    });
+    function redirectToHome() {
+    window.location.href = 'index.html'; // Redirects to index.html
+}
+    </script>
+</body>
+</html>
