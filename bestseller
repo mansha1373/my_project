@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+      .hidden{
+        display: none;
+      }
+      .highlight{
+        background-color: darkviolet;
+      }
+    </style>
+</head>
+<body>
+  <div class="header">
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-book"></i>&ensp;GOODREADS</a>
+            <div class="search-box">
+              <input type="search" name="" placeholder="Search here..." id="search-box">
+              <span class="material-symbols-outlined">
+                  search
+              </span>
+          </div>
+            <div class="icons">
+                <!-- <div id="search-btn" class="fas fa-search"></div> -->
+                <a href="cart.html" class="fas fa-shopping-cart">
+                  <span id="cart-count-header">0</span> 
+                </a>
+                <a href="wishlist.html" class="fas fa-heart"></a>
+                <a href="signup.html" class="fas fa-user"></a>
+            </div>
+        </div>
+       <div class="header-2">
+        
+        <nav class="navbar">
+            <a href="index.html">Home  </a> &nbsp; | &nbsp;
+            <a href="bestsellers.html">Best Sellers</a> &nbsp; | &nbsp;
+             <!-- Dropdown for Categories -->
+             <div class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Categories</a>
+              <div class="dropdown-content">
+              <a class="dd" href="categories.html#romance">Romance</a>
+              <a class="dd" href="categories.html#non-fiction">Non-Fiction</a>
+              <a class="dd" href="categories.html#YoungAdult">Young Adults</a>
+              <a class="dd" href="categories.html#biographies">Biographies</a>
+              </div>
+      </div>
+          &nbsp; | &nbsp;
+            <a href="review.html">Reviews</a> &nbsp; | &nbsp;
+            <a href="author.html">Authors</a> 
+            
+        </nav>
+       </div>
+     </div>
+
+
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+      <span class="close-btn" onclick="closeLightbox()">&times;</span>
+      
+      <!-- Left Side: Image and Buttons -->
+      <div class="lightbox-image">
+          <img id="lightbox-img" src="" alt="Product Image">
+          <div class="lightbox-actions">
+              <button class="btn" id="add-to-cart">
+                <div id="cart-button" onclick="addToCart()">Add to cart</div>
+    
+              </button>
+              <button class="btn" id="buy-now">Buy Now</button>
+          </div>
+      </div>
+      
+      <!-- Right Side: Book Details -->
+      <div class="lightbox-details">
+          <h2 id="lightbox-title">Book Title</h2>
+          <p id="lightbox-author">Author's Name</p>
+          <p id="lightbox-description">Description of the book goes here...</p>
+          
+          <div class="genres">
+            <p><strong>Genres:</strong></p>
+            <div id="genre-list" class="genre-list"> </div>
+            
+        </div>
+<br>
+          <!-- Rating Section -->
+          <div class="star-rating">
+            <input type="radio" name="rating" id="star5" value="5" required>
+            <label for="star5">★</label>
+            <input type="radio" name="rating" id="star4" value="4">
+            <label for="star4">★</label>
+            <input type="radio" name="rating" id="star3" value="3">
+            <label for="star3">★</label>
+            <input type="radio" name="rating" id="star2" value="2">
+            <label for="star2">★</label>
+            <input type="radio" name="rating" id="star1" value="1">
+            <label for="star1">★</label>
+          </div>
+          
+          <p id="lightbox-price">Price</p>
+      </div>
+  </div>
+</div>
+
+
+
+   <div id="containerfeature">
+        <h1>Our Bestseller's</h1>
+     </div>
+        
+        <br>
+        <div class="childfeature" id="items">
+          <h1></h1>
+        </div>  
+        <div class="childfeature child2feature" book-name="Spin The Bottle" >
+          
+            <div class="child-classfeature">
+              <a href="#" onclick="openLightbox('Spin The Bottle', 
+          'Stephanie Alves',
+          'Spin the bottle to decide your fate. Leila, I have rules. Dating? Out of the question. That is, until an unexpected game of spin the bottle lands me face-to-face with Aiden Pierce. He is captivating, talented and persistent and he slowly chips away at my defenses until we strike a deal. No strings attached and absolute secrecy. It was supposed to be uncomplicated, but the more time I spend with him, the harder it becomes to remember why we can’t be together. Aiden, This was never part of the plan. Leila Pérez is tempting, assertive and unattainable. I’m determined to prove to her how good we can be together, if only she’d take the leap.There’s just one problem. I’m hiding something from her, threatening to unravel everything we’ve built.', 
+          '599₹ (Signed Paperback)', 
+          'images/spin_the_bottle.jfif',
+          'Romance &nbsp  Plus-size &nbsp College &nbsp Basketball &nbsp Sports &nbsp Fiction')">
+              <img
+                src="images\spin_the_bottle.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">Spin The Bottle</p>
+              <p class="description">Spin the bottle to decide your fate.
+                I’m determined to prove to her how good we can be together, but there’s just one problem.
+                 I’m hiding something from her.
+              </p>
+              <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+          
+          
+            <div class="child-classfeature" book-name="The Letter to Milena">
+              <a href="#" onclick="openLightbox('Letters to Milena', 
+          'Franz Kafka',
+          'In no other work does Kafka reveal himself as in the Letters to Milena, which begin essentially as a business correspondence but soon develop into a passionate letter love. Milena Jesenská was a gifted and charismatic woman of twenty-three. For the thirty-six-year-old Kafka, she was a living fire, such as I have never seen. It was to her that, after the end of the affair, he entrusted the safekeeping of his diaries. Newly translated, revised, and expanded, this edition contains material previously omitted because of its extreme sensitivity. Also included for the first time are letters and essays by Milena Jesenská, herself a talented writer as well as the recipient of these documents of Kafka’s love, anxiety, and despair.',
+          '500₹ (First Edition)', 
+          'images/kafka.jfif',
+          'Classics &nbsp  Poetry &nbsp Literature &nbsp Biography &nbsp Memoir &nbsp Unfinished-love')">
+              <img
+                src="images\kafka.jfif"
+                alt="Nonfiction.image"
+              />
+              </a>
+              <p class="book-name">The Letter to Milena</p>
+              <p class="description">Kafka reveal himself as in the Letters to Milena,
+                 which begin essentially as a business correspondence but soon develop 
+                 into a passionate "letter love.</p>
+              <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()" ></i></p>
+            </div>
+         
+          
+            <div class="child-classfeature" book-name="In All We Know">
+              <a href="#" onclick="openLightbox('All We Know', 
+          ' Lisa Cohen',
+          'In All We Know, Lisa Cohen describes these women’s glamorous choices, complicated failures, and controversial personal lives with lyricism and empathy. At once a series of intimate portraits and a startling investigation into style, celebrity, and the genre of biography itself, All We Know explores a hidden history of modernism and pays tribute to three compelling lives. Esther Murphy was a brilliant New York intellectual who dazzled friends and strangers with an unstoppable flow of conversation. But she never finished the books she was contracted to write―a painful failure and yet a kind of achievement. All We Know is one of Publishers Weekly’s Top 10 Best Books of 2012',
+          '599₹ (First Edition)', 
+          'images/all_we_know.jfif',
+          'Feminism &nbsp  Fashion &nbsp Women  &nbsp Biography &nbsp Memoir &nbsp History')" >
+              <img
+                src="images\all_we_know.jfif"
+                alt="Nonfiction.image"
+              />
+              </a>
+              <p class="book-name">In All We Know</p>
+              <p class="description">A revelatory biography of three glamorous, complex, modern women.
+                In All We Know, Lisa Cohen describes these women’s complicated 
+                failures and lives. 
+            </p>
+            <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+          
+          
+            <div class="child-classfeature" book-name="King of Wrath">
+              <a href="#" onclick="openLightbox('King Of Wrath', 
+          'Ana Huang',
+          'She’s the wife he never wanted…and the weakness he never saw coming. Ruthless. Meticulous. Arrogant. Dante Russo thrives on control, both personally and professionally. He never planned to marry—until the threat of blackmail forces him into an engagement with a woman he barely knows. Vivian Lau, jewelry heiress and daughter of his newest enemy. It doesn’t matter how beautiful or charming she is. He’ll do everything in his power to destroy the evidence and their betrothal.  There’s only one problem: now that he has her...he can’t bring himself to let her go. Elegant. Ambitious. Well-mannered, the worst thing she could possibly do: fall in love with her future husband',
+          '499₹ (Limited Paperback)', 
+          'images/King of Wrath.jfif',
+          'Contemporary Romance &nbsp Fiction  &nbsp Fantasy &nbsp Love &nbsp Young Adult')">
+              <img
+                src="images\King of Wrath.jfif"
+
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">King of Wrath</p>
+              <p class="description">She’s the wife he never wanted…and the weakness he never saw coming.
+                Craving his touch was never part of the plan, neither was falling in love with him.
+              </p>
+              <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+          
+         
+            <div class="child-classfeature" book-name="A good girl's guide to murder">
+              <a href="#"  onclick="openLightbox('A Good Girl’s Guide To Murder', 
+              'Holly Jackson',
+              'Everyone in Fairview knows the story. Pretty and popular high school senior Andie Bell was murdered by her boyfriend, Sal Singh, who then killed himself. Five years later, Pip sees how the tragedy still haunts her town. But she can’t shake the feeling that there was more to what happened that day. She knew Sal when she was a child, and he was always so kind to her. How could he possibly have been a killer? Now a senior herself, Pip decides to reexamine the closed case for her final project, at first just to cast doubt on the original investigation. But soon she discovers a trail of dark secrets that might actually prove Sal innocent. and the line between past and present begins to blur. Someone in Fairview doesn’t want Pip digging around for answers, and now her own life might be in danger.',
+              '500₹ (Limited Paperback)', 
+              'images/A_Good_girl.jfif',
+              'Mystery &nbsp Fiction  &nbsp Thriller &nbsp Crime &nbsp Young Adult &nbsp Romance')">
+              <img
+                src="images\A_Good_girl.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">A girl's guide to murder</p>
+              <p class="description">Five years after the murder of Andie bell,
+                 pip is determined to uncover the truth and find the real killer but soon
+                  the line between past and present begins to blur.</p>
+                  <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+      
+          
+            <div class="child-classfeature" book-name="The Fine Print">
+              <a href="#"  onclick="openLightbox('The Fine Print', 
+          'Lauren Asher',
+          'Rowan: I’m in the business of creating fairy tales. Theme parks. Production companies. Everything could be all mine if I renovated Dreamland. My initial idea of hiring Zahra was good in theory, but then I kissed her. By the time I realized where I went wrong, it was too late. People like me don’t get happy endings. Not when we’re destined to ruin them. Zahra: After submitting a drunk proposal criticizing Dreamland’s most expensive ride, I should have been fired. Instead, Rowan Kane offered me a dream job. Rowan was rude and completely off-limits, but my heart didn’t care. At least not until I discovered his secret.',
+          '399₹ (Paperback)', 
+          'images/Fine_print.jfif',
+          'Romance &nbsp Fiction  &nbsp Theme Park &nbsp Grumpy X Sunshine &nbsp Young Adult')">
+              <img
+                src="images\Fine_print.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">The Fine Print</p>
+              <p class="description">People like me don't get happy endings.
+                Not when we're destined to ruin them. It was time to teach him
+                that money couldn't fix everything.Especially not us.
+            </p>
+             
+            <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+          
+         
+            <div class="child-classfeature" book-name="Noise">
+              <a href="#" onclick="openLightbox('Noise', 
+              'Kathleen Raymundo',
+              'An introverted girl who just wanted to be left alone. A talkative little boy with a very important wish. Based on a true story, Noise is the heartwarming tale of finding joy in unexpected places. Short and sweet, this is a full-color comic book for both children and adults alike.',
+              '500₹ (Limited Paperback)', 
+              'images/Noise.jfif',
+              'Coming-of-age &nbsp Fiction  &nbsp Graphic novel &nbsp Children &nbsp Contemporary')">
+              <img
+                src="images\Noise.jfif"
+                alt="Nonfiction.image"
+              />
+              </a>
+              <p class="book-name">Noise</p>
+              <p class="description">A girl who just wanted to be left alone. A 
+                boy with a very important wish. Based on a true story, Noise is the tale of finding
+                 joy in unexpected places.</p>
+                 <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+          
+          
+            <div class="child-classfeature">
+              <a href="#" onclick="openLightbox('Small Fry', 
+          'Lisa Brennan Job',
+          'Small Fry is Lisa Brennan-Jobs’s poignant story of a childhood spent between two imperfect but extraordinary homes. Scrappy, wise, and funny, young Lisa is an unforgettable guide through her parents’ fascinating and disparate worlds. Part portrait of a complex family, part love letter to California in the seventies and eighties, Small Fry is an enthralling book by an insightful new literary voice.',
+          '499₹ (Paperback)', 
+          'images/small_fry.jfif',
+          'Non-fiction &nbsp Auto-biography &nbsp Adult &nbsp Family &nbsp Coming-of-age')">
+              <img
+                src="images\small_fry.jfif"
+                alt="Nonfiction.image"
+              />
+              </a>
+              <p class="book-name">Small Fry</p>
+              <p class=" description">Small Fry is a story of a childhood
+                 spent between two imperfect but extraordinary homes. Small Fry is an enthralling 
+                 book by an insightful new literary voice.</p>
+                 <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+       
+          
+            <div class="child-classfeature" book-name="Powerless">
+              <a href="#" onclick="openLightbox('powerless', 
+          'Lauren Roberts',
+          'She is the very thing he’s spent his whole life hunting. He is the very thing she’s spent her whole life pretending to be. Only the extraordinary belong in the kingdom of Ilya—the exceptional, the empowered, the Elites. Surviving in the slums as an Ordinary is no simple task, and Paedyn knows this better than most. When Paeydn unsuspectingly saves one of Ilyas princes, she finds herself thrown into the Purging Trials. The brutal competition exists to showcase the Elites’ powers—the very thing Paedyn lacks. If the Trials and the opponents within them don’t kill her, the prince she’s fighting feelings for certainly will if he discovers what she is—completely Ordinary.',
+          '600₹ (Limited Paperback)', 
+          'images/powerless.jfif',
+          'Fiction &nbsp Romance &nbsp Young Adult &nbsp Magic &nbsp Fantasy')">
+              <img
+                src="images\powerless.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">Powerless</p>
+              <p class="description">She is the very thing he’s spent his whole life hunting.
+                He is the very thing she’s spent her whole life pretending to be.
+                the exceptional, the elites.</p>
+                <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+      
+          
+            <div class="child-classfeature" book-name="Cruel Prince">
+              <a href="#" onclick="openLightbox('Cruel Prince', 
+          'Holly Black',
+          'Of course I want to be like them. They’re beautiful as blades forged in some divine fire. They will live forever. And Cardan is even more beautiful than the rest. I hate him more than all the others. I hate him so much that sometimes when I look at him, I can hardly breathe. To win a place at the Court, she must defy him–and face the consequences. As Jude becomes more deeply embroiled in palace intrigues and deceptions, she discovers her own capacity for trickery and bloodshed. But as betrayal threatens to drown the Courts of Faerie in violence, Jude will need to risk her life in a dangerous alliance to save her sisters, and Faerie itself.',
+          '799₹ (Signed Paperback)', 
+          'images/cruel_prince.jfif',
+          'Fiction &nbsp Romance &nbsp Young Adult &nbsp Fae &nbsp Fantasy')">
+              <img
+                src="images\cruel_prince.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">Cruel Prince</p>
+              <p class="description">To win a place at the Court, she must defy him and face the consequences. 
+                He's majestic, that sometimes when I look at him, I can hardly breathe.
+              </p>
+              <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+        
+          
+            <div class="child-classfeature" book-name="Harry Potter">
+              <a href="#" onclick="openLightbox('Harry Potter and the Philospher’s Stone', 
+          'J.K Rolings and Olly Moss ',
+          'Turning the envelope over, his hand trembling, Harry saw a purple wax seal bearing a coat of arms; a lion, an eagle, a badger and a snake surrounding a large letter H. Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry’s eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!',
+          '500₹ (Paperback)', 
+          'images/potter_head.jfif',
+          'Fiction &nbsp Magic &nbsp Young Adult &nbsp Children &nbsp Adventure')">
+              <img
+                src="images\potter_head.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">Harry Potter</p>
+              <p class="description">Turning the envelope over, his hand trembling, Harry saw a purple wax seal 
+                bearing a lion, an eagle, a badger and a snake surrounding a large letter 'H'."
+            </p>
+            <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+            </div>
+       
+          
+            <div class="child-classfeature" book-name="Maddest Obsession"> 
+              <a href="#" onclick="openLightbox('Maddest Obsession', 
+              'Danielle Lori',
+              'She fears the dark. He rules it. Her heels too tall. She laughs too loudly, eats without decorum, and mixes up most sayings in the book. Little do most know it’s just a sparkly disguise, there to hide one panic attack at a time. Nobody can crack Gianna’s facade . . . no one anyway, until he comes along. Nowhere in Christian’s plans had he ever prepared for Gianna. She’s chaos embodied, not his type, and married, but none of that can stop his eyes from following her wherever she goes. All along, she doesn’t even know that she’s his—his frustration, his fascination. His maddest obsession.',
+              '699₹ (Limited Paperback)', 
+              'images/maddest_obsession.jfif',
+              'Fiction &nbsp Dark &nbsp Young Adult & Romance &nbsp Crime')">
+              <img
+                src="images\maddest_obsession.jfif"
+                alt="fiction.image"
+              />
+              </a>
+              <p class="book-name">Maddest Obsession</p>
+              <p class="description">
+                She fears the dark.He rules it. All along, she doesn't even know that she's his frustration, his
+               fascination.His maddest obsession.*Can be read as a standalone
+              </p>
+              
+              <p class="wishlist-icon"><i class="fas fa-heart" onclick="wishlist()"></i></p>
+
+            </div>
+            
+              
+        </div>
+      </div> 
+      <br>
+      <br>
+      <!--footer section starts-->
+
+
+<script>
+  function openLightbox(title, author, description, price, imgSrc, genres) {
+  
+    document.getElementById('lightbox-title').innerText = title;
+    document.getElementById('lightbox-author').innerText = "by " + author;
+    document.getElementById('lightbox-description').innerText = description;
+    document.getElementById('lightbox-price').innerText = price;
+    document.getElementById('lightbox-img').src = imgSrc;
+    document.getElementById('genre-list').innerText = genres;
+
+   
+    document.getElementById('lightbox').style.display = 'flex';
+}
+
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+
+document.getElementById('add-to-cart').addEventListener('click', function() {
+    alert('Added to cart');
+  
+    closeLightbox(); 
+});
+
+document.getElementById('buy-now').addEventListener('click', function() {
+    alert('Proceeding to checkout');
+    window.location.href = "checkout.html";
+    closeLightbox(); 
+});
+
+
+
+    window.onload = function() {
+        alert ("Welcome to GoodReads! Enjoy up to 75% off on our Best Sellers.");
+    }
+
+    function wishlist(){
+  alert("Item added to wishlist");
+  window.location.href = "wishlist.html"; 
+ 
+}
+
+// script for search box
+
+const searchBox = document.getElementById('search-box');
+  const highlightCards = document.querySelectorAll('.childfeature');
+
+  searchBox.addEventListener('input', () => {
+    const value = searchBox.value.toLowerCase();
+
+    highlightCards.forEach(card => {
+      const name = card.getAttribute('book-name').toLowerCase();
+
+      if (name.includes(value)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+ 
+
+<!--script to increase cart count and then storing a particular book in local storage-->
+<script>
+  let cartCount = 0;
+
+
+function updateCartCount() {
+    document.getElementById("cart-count-header").textContent = cartCount;
+}
+
+function addToCart() {
+
+    const title = document.getElementById('lightbox-title').innerText;
+    const author = document.getElementById('lightbox-author').innerText;
+    const price = document.getElementById('lightbox-price').innerText;
+    const imgSrc = document.getElementById('lightbox-img').src;
+
+    const book = {
+        title,
+        author,
+        price,
+        imgSrc
+    };
+    
+    // Get cart from localStorage or initialize it as an empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // we have used  push here to add it to the cart page
+    cart.push(book);
+    
+   
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+
+    cartCount++;
+    updateCartCount();
+    
+    
+    closeLightbox();
+}
+</script>
+  
+
+
+<div class="footer">
+  <div class="box-container">
+      <div class="box">
+          <h3>World wide shipping</h3>
+          <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;India</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;Europe</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;USA</a>
+      </div>
+
+      <div class="box">
+          <h3>Extra links</h3>
+          <a href="about.html"><i class="fas fa-arrow-right"></i>&nbsp;About Us</a>
+          <a href="privacy.html"><i class="fas fa-arrow-right"></i>&nbsp;Privacy policy</a>
+          <a href="services.html"><i class="fas fa-arrow-right"></i>&nbsp;Our services</a>
+      </div>
+
+      <div class="box">
+          <h3>Contact info</h3>
+          <a href="#"><i class="fas fa-phone"></i>&nbsp;+91 8168-392-882</a>
+          <a href="#"><i class="fas fa-phone"></i>&nbsp;+91 9998-795-087</a>
+          <a href="#"><i class="fas fa-envelope"></i>&nbsp;goodread@gmail.com</a>
+      </div>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <div class="share">
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-linkedin"></a>
+      <a href="#" class="fab fa-pinterest"></a>
+  </div>
+</div>
+<!--footer section ends-->
+
+</body>
+</html>
+</body>
+</html>
