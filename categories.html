@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLINE BOOKSTORE</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <!-- header section starts -->
+     <div class="header">
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-book"></i>&ensp;GOODREADS</a>
+            <form action="" class="search-box">
+                <input type="search" name="" placeholder="search here..." id="search-box">
+                <span class="material-symbols-outlined">
+                    search
+                    </span>
+            </form>
+            <div class="icons">
+                <!--<div id="search-btn" class="fas fa-search"></div>-->
+                <a href="cart.html" class="fas fa-shopping-cart">
+                    <span id="cart-count-header">0</span> 
+                </a>
+                <a href="wishlist.html" class="fas fa-heart"></a>
+                <a href="signup.html" class="fas fa-user"></a>
+            </div>
+        </div>
+       <div class="header-2">
+        
+        <nav class="navbar">
+            <a href="index.html">Home</a> &nbsp; | &nbsp;
+            <a href="bestsellers.html">Best Sellers</a> &nbsp; | &nbsp;
+            <!-- Dropdown for Categories -->
+            <div class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                <a class="dd" href="categories.html#romance">Romance</a>
+                <a class="dd" href="categories.html#non-fiction">Non-Fiction</a>
+                <a class="dd" href="categories.html#YoungAdult">Young Adults</a>
+                <a class="dd" href="categories.html#biographies">Biographies</a>
+                </div>
+        </div>
+            &nbsp; | &nbsp;
+            <a href="review.html">Reviews</a> &nbsp; | &nbsp;
+            <a href="author.html">Authors</a>
+        </nav>
+       </div>
+     </div>
+
+<!--header section ends here-->
+<div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        
+        <!-- Left Side: Image and Buttons -->
+        <div class="lightbox-image">
+            <img id="lightbox-img" src="" alt="Product Image">
+            <div class="lightbox-actions">
+                <button class="btn" id="add-to-cart">
+                    <div id="cart-button" onclick="addToCart()">Add to cart</div>
+                
+                </button>
+                <button class="btn" id="buy-now">Buy Now</button>
+            </div>
+        </div>
+        
+        <!-- Right Side: Book Details -->
+        <div class="lightbox-details">
+            <h2 id="lightbox-title">Book Title</h2>
+            <p id="lightbox-author">Author's Name</p>
+            <p id="lightbox-description">Description of the book goes here...</p>
+            
+            <div class="genres">
+              <p><strong>Genres:</strong></p>
+              <div id="genre-list" class="genre-list"> </div>
+              
+          </div>
+  <br>
+            <!-- Rating Section -->
+            <div class="star-rating">
+              <input type="radio" name="rating" id="star5" value="5" required>
+              <label for="star5">★</label>
+              <input type="radio" name="rating" id="star4" value="4">
+              <label for="star4">★</label>
+              <input type="radio" name="rating" id="star3" value="3">
+              <label for="star3">★</label>
+              <input type="radio" name="rating" id="star2" value="2">
+              <label for="star2">★</label>
+              <input type="radio" name="rating" id="star1" value="1">
+              <label for="star1">★</label>
+            </div>
+            
+            <p id="lightbox-price">Price</p>
+        </div>
+    </div>
+  </div>
+  
+  
+<!-- Categories Section -->
+<div class="categories">
+    <!-- Fiction Section -->
+    <div id="romance" class="category-section">
+        <h2>Romance</h2>
+        <div class="book-slider">
+            <div class="slider">
+                <div class="slider-items">
+                
+                    <a href="#" onclick="openLightbox('Caught Up', 
+                    'Liz Tomforde',
+                    'As a high-end pastry chef who recently won the most prestigious award in my industry, I’m desperate to prove I deserve it. But with a new title comes new pressure, and I can’t create a fresh and inspiring dessert to save my life. With only two months to get back on track, I should be focusing in the kitchen, but instead, I let my dad talk me into using my time off to nanny for his star player’s kid. Kai Rhodes forgot how to have fun, and I’m eager to jog his memory. But when he and his son start to feel like home, I have to remind us both that my time in Chicago ends with the summer. Besides, I’ve always been a runner, and the last thing I want is to get caught.',
+                    '500₹ (First Edition)', 
+                    'images/caught up.jfif',
+                    'Adult &nbsp Romance &nbsp Sports &nbsp Contemporary &nbsp Found-family &nbsp Love')">
+                        <div class="book-card">
+                            <img src="images\caught up.jfif" alt="Fiction Book 1">
+                            <p>Caught Up</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Reckless', 
+                     'Lauren Roberts',
+                     'The kingdom of Ilya is in turmoil… After surviving the Purging Trials, Ordinary-born Paedyn Gray has killed the King, and kickstarted a Resistance throughout the land. Now she’s running from the one person she had wanted to run to. Kai Azer is now Ilya’s Enforcer, loyal to his brother Kitt, the new King. He has vowed to find Paedyn and bring her to justice. Be swept away by this kiss-or-kill romantasy trilogy taking the world by storm.',
+                     '600₹ (Signed Edition)', 
+                     'images/reckless.jfif',
+                     'Adult &nbsp Romance &nbsp Fantasy &nbsp Magic &nbsp Fiction &nbsp Love')">
+                        <div class="book-card">
+                            <img src="images\reckless.jfif" alt="Fiction Book 1">
+                            <p>Reckless</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('The Graham Effect', 
+                     'Elle Kennedy',
+                     'Briar’s new hockey co-captain has his reasons, though. The men’s team just merged with a rival program, leaving Ryder with an angry roster where everyone hates one another’s guts. To make matters worse, the summer coaching spot he’s angling for with the legendary Garrett Graham is out of reach after he makes the worst possible first impression on his hero. So, really, this compromise with Gigi is win-win. He helps her make the national team, she puts in a good word with her dad. The only potential snag? This bone-deep, body-numbing, mind-spinning chemistry they’re trying to ignore. It’s a dangerous game they’re playing, but the risks just might be worth it.',
+                     '399₹ (limited Paperback)',
+                     'images/graham.jfif',
+                     'Sports &nbsp Romance &nbsp Hockey &nbsp College &nbsp Contemporary &nbsp Fiction')">
+                        <div class="book-card">
+                            <img src="images\graham.jfif" alt="Fiction Book 1">
+                            <p>The Graham Effect</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('The Final Offer', 
+                     'Lauren Asher',
+                     'Callahan: No one knows the real me but her. Lana Castillo—my childhood best friend and the only woman I ever loved. When I broke her heart six years ago, I promised to never return to Lake Wisteria. Alana: Falling in love with Callahan Kane was a mistake. He told me so before destroying my heart and our friendship six summers ago. When he promised never to come back, I foolishly believed him. But then Cal showed up again, intending to sell his grandfather’s lake house. The biggest flaw in his plan? My name is on the deed.',
+                     '599₹ (Signed Paperback)',
+                     'images/final offer.jfif',
+                     'Fiction &nbsp Romance &nbsp Second-Chance &nbsp Adult &nbsp Contemporary ')">
+                        <div class="book-card">
+                            <img src="images\final offer.jfif" alt="Fiction Book 1">
+                            <p>The Final Offer</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('God Of War', 
+                     'Rina Kent',
+                     'I fell for the him. It happened back when I was a clueless girl. But he ruthlessly broke my heart and trapped it in a jar. Since then, I’ve sworn to hate him to the end of my days. Eli King might be a savage devil, but I’m out of his way. And league. That is until I wake up in a hospital and find him holding my hand. He tells me the words that change my life forever. “We got married two years ago, Mrs. King.” So I set out to investigate how I landed myself into this marriage. Turns out, my memories are darker than my present. I thought I could handle his soulless eyes and cold shoulder. I thought wrong. Nothing can stop my husband. Not the secrets surrounding us. Not the hatred between us. Not for me.',
+                     '400₹ (Paperback)',
+                     'images/god.jfif',
+                     'Dark &nbsp Romance &nbsp Fiction &nbsp Adult &nbsp Contemporary &nbsp Mental Health')">
+                        <div class="book-card">
+                            <img src="images\god.jfif" alt="Fiction Book 1">
+                            <p>God Of War</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('I hope this doesn’t find you', 
+                     'Ann Liang',
+                     'Snarky and romantic, I Hope This Doesn’t Find You is Never Have I Ever meets To All the Boys if Lara Jean wrote hate emails instead of love letters. Sadie doesnt have to hold back in her emails, because nobody will ever read them... that is, until they’re accidentally sent out. Overnight, Sadie’s carefully crafted, conflict-free life is turned upside down. It’s her worst nightmare -- now everyone at school knows what she really thinks of them, and they’re not afraid to tell her what they really think of her either. But amidst the chaos, there’s one person growing to appreciate the real Sadie -- Julius, the only boy she’s sworn to hate...',
+                     '349₹ (Paperback)',
+                     'images/find you.jfif',
+                     'High School &nbsp Romance &nbsp Fiction &nbsp Adult &nbsp Contemporary')">
+                        <div class="book-card">
+                            <img src="images\find you.jfif" alt="Fiction Book 1">
+                            <p>Hope this Does't find you</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('You’ve reached Sam', 
+                     'Dustin Thao',
+                     'Seventeen-year-old Julie has her future all planned out—move out of her small town with her boyfriend Sam, attend college in the city, spend a summer in Japan. But then Sam dies. And everything changes. Heartbroken, Julie skips his funeral, throws out his things, and tries everything to forget him and the tragic way he died. But a message Sam left behind in her yearbook forces back memories. Desperate to hear his voice one more time, Julie calls Sam’s cellphone just to listen to his voicemail. And Sam picks up the phone. Unable to stand by the sidelines and watch their shared loved ones in pain, Julie is torn between spilling the truth about her calls with Sam and risking their connection and losing him forever.',
+                     '400₹ (Limited Paperback)',
+                     'images/sam.jfif',
+                     'Fantasy &nbsp Romance &nbsp Fiction &nbsp Paranormal &nbsp Contemporary &nbsp Magical Realism')" >
+                        <div class="book-card">
+                            <img src="images\sam.jfif" alt="Fiction Book 1">
+                            <p>You've reached sam</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Ignite Me', 
+                     'Tahereh Mafi',
+                     'With Omega Point destroyed, Juliette doesn’t know if the rebels, her friends, or even Adam are alive. But that won’t keep her from trying to take down The Reestablishment once and for all. Now she must rely on Warner, the handsome commander of Sector 45. The one person she never thought she could trust. The same person who saved her life. He promises to help Juliette master her powers and save their dying world . . . but that’s not all he wants with her. The Shatter Me series is perfect for fans who crave action-packed young adult novels with tantalizing romance like Divergent by Veronica Roth, The Hunger Games by Suzanne Collins, and Legend by Marie Lu. Tahereh Mafi has created a captivating and original story that combines the best of dystopian and paranormal.',
+                     '500₹ (Limited Paperback)',
+                     'images/Ignite.jfif',
+                     'Fantasy &nbsp Romance &nbsp Fiction &nbsp Dystopia &nbsp paranormal &nbsp Science Fiction')" >
+                        <div class="book-card">
+                            <img src="images\ignite.jfif" alt="Fiction Book 1">
+                            <p>Ignite Me</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Finisher', 
+                     'RuNyx',
+                     'What happens when a beast of blood finds a bride of light in the land of death? Growing up on the streets of Los Fortis, Alessandro (Alpha) Villanova scrapped his way to the top, fighting for his very survival, losing everything in the process. Far from Alpha’s world, Zephyr de la Vega has a normal life, normal family, normal drama. Her biggest problem is people trying to make her lose a few pounds. When a chance encounter puts her on his path, she makes a proposition that changes the course of their lives. A city that shunned him then is now the one he rules, albeit alone, as the king of a dark empire few know about. Evil ascends. Darkness descends. A new order is born.',
+                     '700₹ (Signed Paperback)',
+                     'images/finisher.jfif',
+                     'Suspence &nbsp Romance &nbsp Fiction &nbsp Mystery &nbsp Crime &nbsp Dark')" >
+                        
+                        <div class="book-card">
+                            <img src="images\finisher.jfif" alt="Fiction Book 1">
+                            <p>The Finisher</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('A Good Girl’s Guide To Murder', 
+                     'Holly Jackson',
+                     'Everyone in Fairview knows the story. Pretty and popular high school senior Andie Bell was murdered by her boyfriend, Sal Singh, who then killed himself. Five years later, Pip sees how the tragedy still haunts her town. But she can’t shake the feeling that there was more to what happened that day. She knew Sal when she was a child, and he was always so kind to her. How could he possibly have been a killer? Now a senior herself, Pip decides to reexamine the closed case for her final project, at first just to cast doubt on the original investigation. But soon she discovers a trail of dark secrets that might actually prove Sal innocent. and the line between past and present begins to blur. Someone in Fairview doesn’t want Pip digging around for answers, and now her own life might be in danger.',
+                     '500₹ (Limited Paperback)', 
+                     'images/A_Good_girl.jfif',
+                     'Mystery &nbsp Fiction  &nbsp Thriller &nbsp Crime &nbsp Young Adult &nbsp Romance')">
+                        <div class="book-card">
+                            <img src="images\A_Good_girl.jfif" alt="Fiction Book 1">
+                            <p>A good girl's guide to murder</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Cruel Prince', 
+                     'Holly Black',
+                     'Of course I want to be like them. They’re beautiful as blades forged in some divine fire. They will live forever. And Cardan is even more beautiful than the rest. I hate him more than all the others. I hate him so much that sometimes when I look at him, I can hardly breathe. To win a place at the Court, she must defy him–and face the consequences. As Jude becomes more deeply embroiled in palace intrigues and deceptions, she discovers her own capacity for trickery and bloodshed. But as betrayal threatens to drown the Courts of Faerie in violence, Jude will need to risk her life in a dangerous alliance to save her sisters, and Faerie itself.',
+                     '799₹ (Signed Paperback)', 
+                     'images/cruel_prince.jfif',
+                     'Fiction &nbsp Romance &nbsp Young Adult &nbsp Fae &nbsp Fantasy')">
+                        <div class="book-card">
+                            <img src="images\cruel_prince.jfif" alt="Fiction Book 1">
+                            <p>Cruel Prince</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Fine Print', 
+                     'Lauren Asher',
+                     'Rowan: I’m in the business of creating fairy tales. Theme parks. Production companies. Everything could be all mine if I renovated Dreamland. My initial idea of hiring Zahra was good in theory, but then I kissed her. By the time I realized where I went wrong, it was too late. People like me don’t get happy endings. Not when we’re destined to ruin them. Zahra: After submitting a drunk proposal criticizing Dreamland’s most expensive ride, I should have been fired. Instead, Rowan Kane offered me a dream job. Rowan was rude and completely off-limits, but my heart didn’t care. At least not until I discovered his secret.',
+                     '399₹ (Paperback)', 
+                     'images/Fine_print.jfif',
+                     'Romance &nbsp Fiction  &nbsp Theme Park &nbsp Grumpy X Sunshine &nbsp Adult')">
+                     
+                        <div class="book-card">
+                            <img src="images\fine_print.jfif" alt="Fiction Book 1">
+                            <p>The Fine Print</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Kill Switch', 
+                     'Penelope Douglas',
+                     'I’ve done far worse than what I went to prison for. She has no idea how bad this can get. No, its time I listened to my father and took control of my future. It’s time I showed them all--my family, her family, my friends--that I will never change and that I have no other ambition than to be the nightmare of their lives. Starting with her. Shell be so scared, she won’t even be safe in her own head by the time I’m done with her. And the best part is I won’t have to break into her home to do it. As the new man of the house I have all the keys.',
+                     '499₹ (Paperback)', 
+                     'images/killSwitch.jfif',
+                     'Romance &nbsp Fiction &nbsp Dark &nbsp Adult &nbsp Contemporary &nbsp Suspense')">
+                        <div class="book-card">
+                            <img src="images\killSwitch.jfif" alt="Fiction Book 1">
+                            <p>killSwitch</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Maddest Obsession', 
+                     'Danielle Lori',
+                     'She fears the dark. He rules it. Her heels too tall. She laughs too loudly, eats without decorum, and mixes up most sayings in the book. Little do most know it’s just a sparkly disguise, there to hide one panic attack at a time. Nobody can crack Gianna’s facade . . . no one anyway, until he comes along. Nowhere in Christian’s plans had he ever prepared for Gianna. She’s chaos embodied, not his type, and married, but none of that can stop his eyes from following her wherever she goes. All along, she doesn’t even know that she’s his—his frustration, his fascination. His maddest obsession.',
+                     '699₹ (Limited Paperback)', 
+                     'images/maddest_obsession.jfif',
+                     'Fiction &nbsp Dark &nbsp Young Adult & Romance &nbsp Crime')">
+                        <div class="book-card">
+                            <img src="images\maddest_obsession.jfif" alt="Fiction Book 1">
+                            <p>Maddest Obsession</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('powerless', 
+                     'Lauren Roberts',
+                     'She is the very thing he’s spent his whole life hunting. He is the very thing she’s spent her whole life pretending to be. Only the extraordinary belong in the kingdom of Ilya—the exceptional, the empowered, the Elites. Surviving in the slums as an Ordinary is no simple task, and Paedyn knows this better than most. When Paeydn unsuspectingly saves one of Ilyas princes, she finds herself thrown into the Purging Trials. The brutal competition exists to showcase the Elites’ powers—the very thing Paedyn lacks. If the Trials and the opponents within them don’t kill her, the prince she’s fighting feelings for certainly will if he discovers what she is—completely Ordinary.',
+                     '600₹ (Limited Paperback)', 
+                     'images/powerless.jfif',
+                     'Fiction &nbsp Romance &nbsp Young Adult &nbsp Magic &nbsp Fantasy')">
+                        <div class="book-card">
+                            <img src="images\powerless.jfif" alt="Fiction Book 1">
+                            <p>Powerless</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('King Of Wrath', 
+                     'Ana Huang',
+                     'She’s the wife he never wanted…and the weakness he never saw coming. Ruthless. Meticulous. Arrogant. Dante Russo thrives on control, both personally and professionally. He never planned to marry—until the threat of blackmail forces him into an engagement with a woman he barely knows. Vivian Lau, jewelry heiress and daughter of his newest enemy. It doesn’t matter how beautiful or charming she is. He’ll do everything in his power to destroy the evidence and their betrothal.  There’s only one problem: now that he has her...he can’t bring himself to let her go. Elegant. Ambitious. Well-mannered, the worst thing she could possibly do: fall in love with her future husband',
+                     '499₹ (Limited Paperback)', 
+                     'images/King of Wrath.jfif',
+                     'Contemporary Romance &nbsp Fiction  &nbsp Fantasy &nbsp Love &nbsp Young Adult')">
+                        <div class="book-card">
+                            <img src="images\King of Wrath.jfif" alt="Fiction Book 1">
+                            <p>King of wrath</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Sinners Condemned', 
+                     'Somme Sketchers',
+                     'No good ever comes from a red-head in a stolen dress with her worldly possessions at her feet. I should have known she was trouble when smoke and sin followed her into my bar and she challenged me to a game. She may have won my watch, but she started a war. As she slipped my Breitling off my wrist and onto her own, she gleefully announced she was the luckiest girl in the world. Yeah, lucky to everyone but me. Because the moment her muddy boots stomped down the stairs and up my spine, my empire started to crumble. The Queen of Hearts will drag me down to hell. At least it’s wonderfully warm among the flames.',
+                     '599₹ (Signed Paperback)', 
+                     'images/sinners.jfif',
+                     'Contemporary Romance &nbsp Fiction  &nbsp Dark &nbsp Fiction &nbsp Crime')" >
+                        <div class="book-card">
+                            <img src="images\sinners.jfif" alt="Fiction Book 1">
+                            <p>Sinners Condemned</p>
+                        </div>
+                     </a>
+                
+                     <a href="#" onclick="openLightbox('Twisted Hate', 
+                     'Ana Huang',
+                     'He hates her...almost as much as he wants her. Gorgeous, cocky, and fast on his way to becoming a hotshot doctor, Josh Chen has never met a woman he couldn’t charm—except for Jules f**king Ambrose. The beautiful redhead has been a thorn in his side since they met, but she also consumes his thoughts in a way no woman ever has. When their animosity explodes into one unforgettable night, he proposes a solution that’ll get her out of his system once and for all: an enemies with benefits arrangement with simple rules. No jealousy. No strings attached. And absolutely no falling in love. Theirs is a match made in hell, and when the demons from their past catch up with them, they’re faced with truths that could either save them …or destroy everything they’ve worked for.',
+                     '400₹ (Paperback)', 
+                     'images/twisted hate.jfif',
+                     'Contemporary Romance &nbsp Fiction &nbsp Doctor &nbsp Love &nbsp Dark')">
+                        <div class="book-card">
+                            <img src="images/twisted hate.jfif" alt="Fiction Book 1">
+                            <p>Twisted Hate</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Spin The Bottle', 
+                     'Stephanie Alves',
+                     'Spin the bottle to decide your fate. Leila, I have rules. Dating? Out of the question. That is, until an unexpected game of spin the bottle lands me face-to-face with Aiden Pierce. He is captivating, talented and persistent and he slowly chips away at my defenses until we strike a deal. No strings attached and absolute secrecy. It was supposed to be uncomplicated, but the more time I spend with him, the harder it becomes to remember why we can’t be together. Aiden, This was never part of the plan. Leila Pérez is tempting, assertive and unattainable. I’m determined to prove to her how good we can be together, if only she’d take the leap.There’s just one problem. I’m hiding something from her, threatening to unravel everything we’ve built.', 
+                     '599₹ (Signed Paperback)', 
+                     'images/spin_the_bottle.jfif',
+                     'Romance &nbsp  Plus-size &nbsp College &nbsp Basketball &nbsp Sports &nbsp Fiction')">
+                        <div class="book-card">
+                            <img src="images\spin_the_bottle.jfif" alt="Fiction Book 1">
+                            <p>Spin The Bottle </p>
+                        </div>
+                     </a>
+                  
+                  
+                  
+                   
+                </div>
+            </div>
+            <button class="prev-btn" onclick="moveSlider('romance', -1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlider('romance', 1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Non-Fiction Section -->
+    <div id="non-fiction" class="category-section">
+        <h2>Non-Fiction</h2>
+        <div class="book-slider">
+            <div class="slider">
+                <div class="slider-items">
+                    
+                    <a href="#" onclick="openLightbox('All We Know', 
+                    ' Lisa Cohen',
+                    'In All We Know, Lisa Cohen describes these women’s glamorous choices, complicated failures, and controversial personal lives with lyricism and empathy. At once a series of intimate portraits and a startling investigation into style, celebrity, and the genre of biography itself, All We Know explores a hidden history of modernism and pays tribute to three compelling lives. Esther Murphy was a brilliant New York intellectual who dazzled friends and strangers with an unstoppable flow of conversation. But she never finished the books she was contracted to write―a painful failure and yet a kind of achievement. All We Know is one of Publishers Weekly’s Top 10 Best Books of 2012',
+                    '599₹ (First Edition)', 
+                    'images/all_we_know.jfif',
+                    'Feminism &nbsp  Fashion &nbsp Women  &nbsp Biography &nbsp Memoir &nbsp History')">
+                        <div class="book-card">
+                            <img src="images\all_we_know.jfif" alt="Non-Fiction Book 1">
+                            <p>All we know</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Atomic Habits', 
+                     'James Clear',
+                     'No matter your goals, Atomic Habits offers a proven framework for improving—every day. Jame’s Clear, one of the worlds leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. Atomic Habits will reshape the way you think about progress and success, and give you the tools and strategies you need to transform your habits--whether you are a team looking to win a championship, an organization hoping to redefine an industry, or simply an individual who wishes to quit smoking, lose weight, reduce stress, or achieve any other goal.',
+                     '399₹ (Paperback)', 
+                     'images/atomic.jfif',
+                     'Self-Help &nbsp Psychology &nbsp Personal Development &nbsp Leadership &nbsp Health ')">
+                        <div class="book-card">
+                            <img src="images\atomic.jfif" alt="Non-Fiction Book 1">
+                            <p>Atomic Habits</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('In Cold Blood', 
+                     'Truman Capote',
+                     'On November 15, 1959, in the small town of Holcomb, Kansas, four members of the Clutter family were savagely murdered by blasts from a shotgun held a few inches from their faces. There was no apparent motive for the crime, and there were almost no clues. As Truman Capote reconstructs the murder and the investigation that led to the capture, trial, and execution of the killers, he generates both mesmerizing suspense and astonishing empathy. In Cold Blood is a work that transcends its moment, yielding poignant insights into the nature of American violence.',
+                     '349₹ (Paperback)', 
+                     'images/coldbloood.jfif',
+                     'Classics &nbsp True Crime &nbsp Mystery &nbsp History &nbsp Thriller ')">
+                        <div class="book-card">
+                            <img src="images\coldbloood.jfif" alt="Non-Fiction Book 1">
+                            <p>In Cold Blood</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('On The Edge', 
+                     'Nate Silver',
+                     'Now, in this timely and riveting new book, Silver investigates The River, or those whose mastery of risk allows them to shape—and dominate—so much of modern life.  These professional risk takers—poker players and hedge fund managers, crypto true-believers and blue-chip art collectors—can teach us much about navigating the uncertainty of the 21st century. By embedding within these worlds, Silver offers insight into a range of issues that affect us all, from the frontiers of finance to the future of AI.The River has increasing amounts of wealth and power in our society, and understanding their mindset—including the flaws in their thinking—is key to understanding what drives technology and the global economy today. On the Edge is a deeply-reported, all-access journey into a hidden world of powerbrokers and risk takers. ',
+                     '400₹ (Signed Paperback)', 
+                     'images/edge.png',
+                     'Non-fiction &nbsp Buisness &nbsp Economics &nbsp Science &nbsp Finance ')">
+                        <div class="book-card">
+                            <img src="images/edge.png" alt="Non-Fiction Book 1">
+                            <p>On The Edge</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Do you still talk to grandma?', 
+                     'Brit Barron',
+                     'Renowned motivational speaker, teacher, and diversity trainer Brit Barron offers a path to holding onto our deepest convictions without losing relationships with the people we love. Brit Barron knows that the people who hurt us with bigotry and ignorance are often the very people we friends, parents, grandparents, religious leaders. But how do we strive for justice without giving up on these relationships or causing new harm? According to Barron, the only way forward is to create a gracious and difficult space for people to forming relationships where we can practice difficult truth-telling, boundary setting, forgiveness, and sharing stories of own failings. This way forward begins by examining ourselves.In Do You Still Talk to Grandma?, Barron draws readers into this tension between relationship and painful accountability.',
+                     '349₹ (Paperback)', 
+                     'images/talk to.jfif',
+                     'Classics &nbsp Non-fiction &nbsp Self-help &nbsp History &nbsp Queer ')">
+                        <div class="book-card">
+                            <img src="images\talk to.jfif" alt="Non-Fiction Book 1"> 
+                            <p>Grandma?</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Small Fry', 
+                     'Lisa Brennan Job',
+                     'Small Fry is Lisa Brennan-Jobs’s poignant story of a childhood spent between two imperfect but extraordinary homes. Scrappy, wise, and funny, young Lisa is an unforgettable guide through her parents’ fascinating and disparate worlds. Part portrait of a complex family, part love letter to California in the seventies and eighties, Small Fry is an enthralling book by an insightful new literary voice.',
+                     '499₹ (Paperback)', 
+                     'images/small_fry.jfif',
+                     'Non-fiction &nbsp Auto-biography &nbsp Adult &nbsp Family &nbsp Coming-of-age')">
+                        <div class="book-card">
+                            <img src="images\small_fry.jfif" alt="Non-Fiction Book 1">
+                            <p>Small Fry</p>
+                        </div>
+                     </a>
+                     
+           
+                     <a href="#" onclick="openLightbox('The Subtle art of not giving a f*ck', 
+                     'Mark Manson',
+                     'In this generation-defining self-help guide, a superstar blogger cuts through the crap to show us how to stop trying to be positive all the time so that we can truly become better, happier people. For decades, we’ve been told that positive thinking is the key to a happy, rich life. F**k positivity, Mark Manson says. Let’s be honest, shit is f**ked and we have to live with it. In his wildly popular Internet blog, Manson doesn’t sugarcoat or equivocate. He tells it like it is—a dose of raw, refreshing, honest truth that is sorely lacking today. The Subtle Art of Not Giving a F**k is his antidote to the coddling, let’s-all-feel-good mindset that has infected American society and spoiled a generation, rewarding them with gold medals just for showing up.',
+                     '499₹ (Paperback)', 
+                     'images/fuck.jfif',
+                     'Non-fiction &nbsp Self-help &nbsp psychology &nbsp Humor &nbsp Buisness')" >
+                        <div class="book-card">
+                            <img src="images\fuck.jfif" alt="Non-Fiction Book 1">
+                            <p>subtle art of not giving a fuck</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Bell Jar', 
+                     'Sylvia Plath',
+                     'The Bell Jar chronicles the crack-up of Esther Greenwood: brilliant, beautiful, enormously talented, and successful, but slowly going under—maybe for the last time. Sylvia Plath masterfully draws the reader into Esther’s breakdown with such intensity that Esther’s insanity becomes completely real and even rational, as probable and accessible an experience as going to the movies. Such deep penetration into the dark and harrowing corners of the psyche is an extraordinary accomplishment and has made The Bell Jar a haunting American classic.',
+                     '599₹ (Paperback)', 
+                     'images/bell.jfif',
+                     'Non-fiction &nbsp Self-help &nbsp psychology &nbsp Feminism &nbsp Novels')" >
+                        <div class="book-card">
+                            <img src="images\bell.jfif" alt="Non-Fiction Book 1">
+                            <p>The Bell Jar</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('How to Winter', 
+                     'Kari Leibotwitz',
+                     'A blend of mindset science, original research, and cultural insights for cultivating a positive “wintertime mindset,” to vanquish winter blues and find joy and comfort in dark times year-round. Do you dread the end of Daylight Saving Time and grouch about the long, chilly season of gray skies and ice? Do you find yourself in a slump every January and February? What if there were a way to rethink this time of year? Psychologist and winter expert Kari Leibowitz’s galvanizing How to Winter uses mindset science to help readers embrace winter as a season to be enjoyed, not endured—and in turn, learn powerful lessons that can impact our mental wellbeing throughout the year.',
+                     '600₹ (Signed Paperback)', 
+                     'images/winter.jfif',
+                     'Non-fiction &nbsp Self-help &nbsp psychology &nbsp Personal Development &nbsp Mental Health')" >
+                        <div class="book-card">
+                            <img src="images\winter.jfif" alt="Non-Fiction Book 1">
+                            <p>How to Winter</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Metamorphosis', 
+                     'Franz Kafka',
+                     'As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into a gigantic insect. He was laying on his hard, as it were armor-plated, back and when he lifted his head a little he could see his domelike brown belly divided into stiff arched segments on top of which the bed quilt could hardly keep in position and was about to slide off completely. His numerous legs, which were pitifully thin compared to the rest of his bulk, waved helplessly before his eyes. Kafka is important to us because his predicament is the predicament of modern man.',
+                     '400₹ (Paperback)', 
+                     'images/metamorphosis-182.jpg',
+                     'Classic &nbsp Philosophy &nbsp Horror &nbsp Literature &nbsp Novel')">
+                        <div class="book-card">
+                            <img src="images\metamorphosis-182.jpg" alt="Non-Fiction Book 1">
+                            <p>The Metamorphosis</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('To name the bigger life', 
+                     'Sarah Viren',
+                     'This unforgettable memoir traces the ramifications of a series of lies that threaten to derail the author’s life—exploring the line between fact and fiction, reality and conspiracy. In To Name the Bigger Lie, Sarah Viren “has pulled off a magic trick of fantastic proportion” (The Washington Post), telling the story of an all-too-real investigation into her personal and professional life that she expands into a profound exploration of the nature of truth. The memoir begins as Viren is researching what she believes will be a book about her high school philosophy teacher, a charismatic instructor who taught her and her classmates to question everything—eventually, even the reality of historical atrocities.',
+                     '500₹ (Paperback)',
+                     'images/life.jfif',
+                     'Memoir &nbsp Non-fiction &nbsp Queer &nbsp Philosophy &nbsp Essays')">
+                        <div class="book-card">
+                            <img src="images\life.jfif" alt="Non-Fiction Book 1">
+                            <p>To name the bigger life</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Letters to Milena', 
+                     'Franz Kafka',
+                     'In no other work does Kafka reveal himself as in the Letters to Milena, which begin essentially as a business correspondence but soon develop into a passionate letter love. Milena Jesenská was a gifted and charismatic woman of twenty-three. For the thirty-six-year-old Kafka, she was a living fire, such as I have never seen. It was to her that, after the end of the affair, he entrusted the safekeeping of his diaries. Newly translated, revised, and expanded, this edition contains material previously omitted because of its extreme sensitivity. Also included for the first time are letters and essays by Milena Jesenská, herself a talented writer as well as the recipient of these documents of Kafka’s love, anxiety, and despair.',
+                     '500₹ (First Edition)', 
+                     'images/kafka.jfif',
+                     'Classics &nbsp  Poetry &nbsp Literature &nbsp Biography &nbsp Memoir &nbsp Unfinished-love')">
+                        <div class="book-card">
+                            <img src="images\kafka.jfif" alt="Non-Fiction Book 1">
+                            <p>Letters to Milena</p>
+                        </div>
+                     </a>
+                     
+          
+                </div>
+            </div>
+            <button class="prev-btn" onclick="moveSlider('non-fiction', -1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlider('non-fiction', 1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!--Young Adults Section -->
+    <div id="YoungAdult" class="category-section">
+        <h2>Young Adults</h2>
+        <div class="book-slider">
+            <div class="slider">
+                <div class="slider-items">
+                   
+                    <a href="#" onclick="openLightbox('The 1000 year old boy', 
+                    'Ross Welford',
+                    'The astonishing, beautiful new story for all readers of 10 and over from the bestselling and Costa-shortlisted author of TIME TRAVELLING WITH A HAMSTER. There are stories about people who want to live forever. This is not one of those stories. This is a story about someone who wants to stop… So when everything Alfie knows and loves is destroyed in a fire, and the modern world comes crashing in, Alfie embarks on a mission to find friendship, acceptance, and a different way to live… which means finding a way to make sure he will eventually die. Obviously no one believes him.',
+                    '500₹ (First Edition)',
+                    'images/1000boy.jfif',
+                    'Fantasy &nbsp  Historical &nbsp Adventure  &nbsp Middle-Grade &nbsp Magical &nbsp Realism')" >
+                        <div class="book-card">
+                            <img src="images\1000boy.jfif" alt="Fiction Book 1">
+                            <p>The 1000 year old boy</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Healer & Witch', 
+                     'Nancy Werlin',
+                     'Nancy Werlin’s first story for middle-grade readers tackles and transcends traditional fantasy tropes: can a young woman gifted with magic learn to manage her powers—and claim her strength—without violence? Sylvie and her mother and grandmother are beloved, trusted healers in their medieval French village, though some whisper that fifteen-year-old Sylvie and her grand-mere deal in more than herbs and medicines. Perhaps they’re a bit . . . witchy? After her grandmother dies, and an attempt to use magic to heal her mother’s grief brooks tragic consequences, Sylvie leaves her village in search of a teacher. The journey subjects her to strange alliances, powerful temptations, danger, and deceit. In the end, there may be only one wise woman Sylvie can trust in a world that would define her limits: herself. ',
+                     '400₹ (Paperback)',
+                     'images/healer&witch.jfif',
+                     'Fantasy &nbsp  Historical &nbsp Witches  &nbsp Middle-Grade &nbsp Magic &nbsp Fiction')">
+                        <div class="book-card">
+                            <img src="images\healer&witch.jfif" alt="Fiction Book 1">
+                            <p>Healer & Witch</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Ikigai for teens', 
+                     'Hector Gracia',
+                     'The Japanese people say everybody has an Ikigai, or a reason to live. Some people have found their Ikigai and are aware of it. Other people have it inside, but have not found it yet. This concept, Ikigai, is one of the secrets for a long, active, and happy life. The result was Ikigai: The Japanese Secret to a Long and Happy Life, an international bestseller which has been translated into over 49 languages. With the book, García and Miralles made it their mission to help its readers find their own Ikigai and discover many keys of Japanese philosophy to a healthy body, mind, and spirit. They have now adapted their bestselling book for young readers. Young adults can find their Ikigai too!',
+                     '499₹ (Limited Paperback)',
+                     'images/ikagaiTeen.jfif',
+                     'Non-fiction &nbsp Self-help &nbsp Children &nbsp Personal Development')" >
+                        <div class="book-card">
+                            <img src="images\ikagaiTeen.jfif" alt="Fiction Book 1">
+                            <p>Ikigai for teens</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('The secret of Moonshard', 
+                     'Hannah Gold',
+                     'The gripping new magical adventure from Branford Boase winner Struan Murray. Domino has lived her whole life believing that just one drop of magic could kill her. Held in a floating laboratory by scheming Science Barons, she has never known a single day of freedom. When Domino discovers that everything she’s been told by the Barons is a lie, she escapes to Abzalaymon, a wondrous city filled with scientific marvels, hulking thunder lizards and hidden magic. But the Barons are soon on Domino’s trail. Because a war is brewing between science and magic. A war that could destroy the world. And Domino might just be the key to saving everyone . . . Thrilling Guardian',
+                     '599₹ (Signed Paperback)',
+                     'images/moonshard.jfif',
+                     'Fiction &nbsp Fantasy &nbsp Middle-Grade &nbsp Magic &nbsp Dinosaurs')">
+                        <div class="book-card">
+                            <img src="images\moonshard.jfif" alt="Fiction Book 1">
+                            <p>The Secret of Moonshard</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Noise', 
+                     'Kathleen Raymundo',
+                     'An introverted girl who just wanted to be left alone. A talkative little boy with a very important wish. Based on a true story, Noise is the heartwarming tale of finding joy in unexpected places. Short and sweet, this is a full-color comic book for both children and adults alike.',
+                     '500₹ (Limited Paperback)', 
+                     'images/Noise.jfif',
+                     'Coming-of-age &nbsp Fiction  &nbsp Graphic novel &nbsp Children &nbsp Contemporary')">
+                        <div class="book-card">
+                            <img src="images\Noise.jfif" alt="Fiction Book 1">
+                            <p>The Noise</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Harry Potter and the Deathly Hallows', 
+                     'J.K Rolings and Olly Moss',
+                     'Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort’s remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him... In this final, seventh installment of the Harry Potter series, J.K. Rowling unveils in spectacular fashion the answers to the many questions that have been so eagerly awaited.',
+                     '600₹ (Signed Paperback)', 
+                     'images/potter 2.jfif',
+                     'Magic &nbsp Fiction  &nbsp Children &nbsp Science-Fiction &nbsp Fantasy')">
+                        <div class="book-card">
+                            <img src="images\potter 2.jfif" alt="Fiction Book 1">
+                            <p>Harry Potter(Deathly Hallows)</p>
+                        </div>
+                     </a>
+                    
+                     <a href="#" onclick="openLightbox('The Last Bear', 
+                     'Hannah Gold',
+                     'An instant classic with a bear-sized heart, Hannah Gold’s debut novel is a touching story of kindness, adventure, and forging your own path—perfect for fans of Pax and A Wolf Called Wander. There are no polar bears left on Bear Island. At least, that’s what April’s father tells her when his scientific research takes them to a faraway Arctic outpost. But one night, April catches a glimpse of something distinctly bear shaped loping across the horizon. A polar bear who shouldn’t be there—who is hungry, lonely and a long way from home. An excellent choice for readers in grades 3 to 7, this fierce celebration of friendship includes full-page black-and-white illustrations throughout, as well as information about the real Bear Island and the plight of the polar bear',
+                     '499₹ (Paperback)',
+                     'images/lastBear.jfif',
+                     'Fiction &nbsp Animal &nbsp Environment &nbsp Contemporary &nbsp Fantasy')">
+                        <div class="book-card">
+                            <img src="images\bear.jfif" alt="Fiction Book 1">
+                            <p>The last bear</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Girl Who Drank Moon', 
+                     'Kelly Barnhill',
+                     'Every year, the people of the Protectorate leave a baby as an offering to the witch who lives in the forest. They hope this sacrifice will keep her from terrorizing their town. But the witch in the forest, Xan, is kind and gentle. She shares her home with a wise Swamp Monster named Glerk and a Perfectly Tiny Dragon, Fyrian. Xan rescues the abandoned children and deliver them to welcoming families on the other side of the forest, nourishing the babies with starlight on the journey. When Luna approaches her thirteenth birthday, her magic begins to emerge on schedule--but Xan is far away. Meanwhile, a young man from the Protectorate is determined to free his people by killing the witch. Soon, it is up to Luna to protect those who have protected her--even if it means the end of the loving, safe world she’s always known.',
+                     '499₹ (Paperback)',
+                     'images/moon.jfif',
+                     'Fiction &nbsp Children &nbsp Magic &nbsp Dragon &nbsp Witches')" >
+                        <div class="book-card">
+                            <img src="images\moon.jfif" alt="Fiction Book 1">
+                            <p>The girl who drank moon</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Harry Potter and the Philospher’s Stone', 
+                     'J.K Rolings and Olly Moss ',
+                     'Turning the envelope over, his hand trembling, Harry saw a purple wax seal bearing a coat of arms; a lion, an eagle, a badger and a snake surrounding a large letter H. Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry’s eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!',
+                     '500₹ (Paperback)', 
+                     'images/potter_head.jfif',
+                     'Fiction &nbsp Magic &nbsp Young Adult &nbsp Children &nbsp Adventure')" >
+                        <div class="book-card">
+                            <img src="images\potter_head.jfif" alt="Fiction Book 1">
+                            <p>Harry Potter</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Secret of the Poison Garden', 
+                     'Ananda Thumrugoti',
+                     'Durga Varma may be a princess, but she’s the last one you’d expect. An introverted geek with a penchant for dodging challenges, Durga couldn’t be less interested in botany - a subject her renowned father, King, and Dr. Harish Varma, is famous for worldwide. When her parents suffer an accident, Durga finds herself as the sole guardian of an ancient and powerful mystery that could unleash unimaginable destruction if in the wrong hands. The clock is ticking...for Durga and her friends to decipher cryptic botanical riddles shrouded for centuries with a deadly enemy on their trail. Will Durga and her eclectic team solve the riddles in time to save themselves and the world from impending doom?',
+                     '400₹ (Paperback)', 
+                     'images/poisonGarden.jfif',
+                     'Fiction &nbsp Magic &nbsp Young Adult &nbsp Children &nbsp Adventure')" >
+                        <div class="book-card">
+                            <img src="images\poisonGarden.jfif" alt="Fiction Book 1">
+                            <p>The Poison Garden</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Lightning Theif', 
+                     'Rick Riordan',
+                     'Percy Jackson is a good kid, but he can’t seem to focus on his schoolwork or control his temper. And lately, being away at boarding school is only getting worse - Percy could have sworn his pre-algebra teacher turned into a monster and tried to kill him. When Percy’s mom finds out, she knows it’s time that he knew the truth about where he came from, and that he go to the one place he’ll be safe. She sends Percy to Camp Half Blood, a summer camp for demigods (on Long Island), where he learns that the father he never knew is Poseidon, God of the Sea. Soon a mystery unfolds and together with his friends—one a satyr and the other the demigod daughter of Athena - Percy sets out on a quest across the United States to reach the gates of the Underworld (located in a recording studio in Hollywood) and prevent a catastrophic war between the gods.',
+                     '500₹ (Paperback)', 
+                     'images/lightning.jfif',
+                     'Fiction &nbsp Mythology &nbsp Adventure &nbsp Children &nbsp Fantasy')">
+                        <div class="book-card">
+                            <img src="images\lightning.jfif" alt="Fiction Book 1">
+                            <p>The Lightning Theif</p>
+                        </div>
+                     </a>
+                  
+                </div>
+            </div>
+            <button class="prev-btn" onclick="moveSlider('YoungAdult', -1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlider('YoungAdult', 1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Biographies Section -->
+    <div id="biographies" class="category-section">
+        <h2>Biographies</h2>
+        <div class="book-slider">
+            <div class="slider">
+                <div class="slider-items">
+                   
+                    <!-- Add Biographies Book Cards here -->
+                    <a href="#" onclick="openLightbox('The Diary of a young girl', 
+                    'Anne Frank',
+                    'Discovered in the attic in which she spent the last years of her life, Anne Frank’s remarkable diary has become a world classic—a powerful reminder of the horrors of war and an eloquent testament to the human spirit. In 1942, with the Nazis occupying Holland, a thirteen-year-old Jewish girl and her family fled their home in Amsterdam and went into hiding. For the next two years, until their whereabouts were betrayed to the Gestapo, the Franks and another family lived cloistered in the “Secret Annexe” of an old office building. Cut off from the outside world, they faced hunger, boredom, the constant cruelties of living in confined quarters, and the ever-present threat of discovery and death. In her diary Anne Frank recorded vivid impressions of her experiences during this period. By turns thoughtful, moving, and surprisingly humorous, her account offers a fascinating commentary on human courage and frailty and a compelling self-portrait of a sensitive and spirited young woman whose promise was tragically cut short.',
+                    '500₹ (Paperback)', 
+                    'images/diary.jfif',
+                    'Biography &nbsp Memoir &nbsp Classic &nbsp Historical &nbsp Holocaust')">
+                        <div class="book-card">
+                            <img src="images\diary.jfif" alt="Fiction Book 1">
+                            <p>The Diary of a young girl</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('The story of Walt Disney', 
+                     'Susan B.Katz',
+                     'Discover the life of Walt Disney—a story about imagination and invention for kids ages 6 to 9.Independent reading —This Walt Disney biography book is broken down into short chapters and simple language so kids 6 to 9 can read and learn on their own. Who was Walt Disney? —With this Walt Disney chapter book, kids will learn the Who, What, Where, When, Why, and How of Walt’s life, find definitions of new words, discussion questions, and more. A lasting legac y—Kids will discover some of the history of Walt Disney World and Disneyland, and how Walt changed the world of animation and entertainment for future generations. How will Walt’s hard work and love of storytelling inspire you?',
+                     '600₹ (Paperback)', 
+                     'images/disney.jfif',
+                     'Biography &nbsp Inspiring &nbsp Classic &nbsp Youth ')">
+                        <div class="book-card">
+                            <img src="images\disney.jfif" alt="Fiction Book 1">
+                            <p>Walt Disney</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('The story of Marie Curie', 
+                     'Susan B.Katz',
+                     'Discover the life of Marie Curie—a story for kids 6 to 9 about discovering big things through hard workMarie Curie was one of the most celebrated scientists in history. Before she changed the world with her discoveries in physics and chemistry, Marie was an intelligent girl who studied hard to reach the top of her class in school. She overcame many challenges, including people who told her she couldn’t be a scientist because she was a woman. She didn’t let anything stop her, and her important research is still helping people today. Explore how Marie Curie went from being a young girl growing up in Poland to a famous, Nobel Prize-winning scientist.',
+                     '600₹ (Paperback)', 
+                     'images/marie.jfif',
+                     'Biography &nbsp Inspiring &nbsp Classic &nbsp Youth ')">
+                        <div class="book-card">
+                            <img src="images\marie.jfif" alt="Fiction Book 1">
+                            <p>Marie Curie</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('At Home with Muhammad Ali', 
+                     'Hana Ali',
+                     'Have you ever wondered what went on behind the scenes, in the everyday private life of, arguably, the world’s most famous man? To preserve his family’s history, Muhammad Ali began recording a series of audio diaries in the 1970s. Drawing on these private tapes, as well as personal journals, love letters, and many never-before-seen photographs, Hana Ali (the third youngest daughter of Muhammad Ali) reflects on the complexity of her father and provides a rare glimpse inside the Ali home–where both joy and pain resided.',
+                     '400₹ (Paperback)', 
+                     'images/muhammad.jfif',
+                     'Biography &nbsp Memoir &nbsp Sports &nbsp Family  &nbsp History')" >
+                        <div class="book-card">
+                            <img src="images\muhammad.jfif" alt="Fiction Book 1">
+                            <p>Home with Muhammad Ali</p>
+                        </div>
+                     </a>
+                  
+                     <a href="#" onclick="openLightbox('Nelson Mandela: A Biography', 
+                     'Peter Limb',
+                     'Everyone should know the life story of Nelson Mandela, one of the greatest leaders of all time, the first black president of South Africa, the most famous African, and a major world statesman. His inspiring life receives a fresh retelling in this new biography written especially for students and general readers. This volume is an enjoyable, authoritative, and balanced way to not only understand a great man, but also to understand a critical time in world history and race relations. Mandela’s quest for racial justice for black South Africans as a leader of the African National Congress led to twenty-seven years of imprisonment. South African Apartheid consumed the attention of the world, coming to a head in the 1980s. With intense international pressure on the Apartheid government, Mandela was finally freed in 1990. Through the landmark presidency of South Africa and post Nobel Peace Prize years up until today, he has continued as a peacemaker and agent for change.',
+                     '500₹ (Paperback)', 
+                     'images/nelson.jfif',
+                     'Biography &nbsp Memoir &nbsp History &nbsp Non-fiction')">
+                        <div class="book-card">
+                            <img src="images\nelson.jfif" alt="Fiction Book 1">
+                            <p>Nelson Mandela</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('The Man Who Knew', 
+                     'Sebastian Mallaby',
+                     'The definitive biography of the most important economic statesman of our time Sebastian Mallaby’s magisterial biography of Alan Greenspan, the product of over five years of research based on untrammeled access to his subject and his closest professional and personal intimates, brings into vivid focus the mysterious point where the government and the economy meet. To understand Greenspan’s story is to see the economic and political landscape of the last 30 years--and the presidency from Reagan to George W. Bush--in a whole new light. As the most influential economic statesman of his age, Greenspan spent a lifetime grappling with a momentous shift: the transformation of finance from the fixed and regulated system of the post-war era to the free-for-all of the past quarter century. The story of Greenspan is also the story of the making of modern finance, for good and for ill. ',
+                     '400₹ (Paperback)', 
+                     'images/man.jfif',
+                     'Biography &nbsp Memoir &nbsp History &nbsp Finance  &nbsp Buisness')" >
+                        <div class="book-card">
+                            <img src="images\man.jfif" alt="Fiction Book 1">
+                            <p>The Man who Knew</p>
+                        </div>
+                     </a>
+                     <a href="#" onclick="openLightbox('Henry V', 
+                     'Dan Jones',
+                     'The New York Times bestselling author returns with a biography examining the dramatic life and unparalleled leadership of England’s greatest medieval king.In 1413, when Henry V ascended to the English throne, his kingdom was hopelessly torn apart by political faction and partisanship. Public finances and law and order were in a state of crisis. Pirates tormented the coast; plots, conspiracies, and heresy threatened society. The lingering effects of the worst pandemic in human history continued to menace daily life. And then, in less than ten years, Henry turns it all around.By common consensus in his day, and for hundreds of years afterward, Henry was the greatest medieval king that ever lived. Through skillful leadership, unwavering vision, and seemingly by sheer force of personality, he managed to catapult his realm into the greatest triumphs it has ever he united the political community behind the crown, renewed the justice system, revived England’s maritime dominance.',
+                     '600₹ (Paperback)', 
+                     'images/hrnry.jfif',
+                     'Biography &nbsp War &nbsp Medival History &nbsp Non-fiction  &nbsp Memoir')">
+                        <div class="book-card">
+                            <img src="images\hrnry.jfif" alt="Fiction Book 1">
+                            <p>Henry V</p>
+                        </div>
+                     </a>
+                     <a href="#">
+                        <div class="book-card" onclick="openLightbox('Becoming', 
+                        'Michelle Obama',
+                        'n her memoir, a work of deep reflection and mesmerizing storytelling, Michelle Obama invites readers into her world, chronicling the experiences that have shaped her—from her childhood on the South Side of Chicago to her years as an executive balancing the demands of motherhood and work, to her time spent at the world’s most famous address. With unerring honesty and lively wit, she describes her triumphs and her disappointments, both public and private, telling her full story as she has lived it—in her own words and on her own terms. Warm, wise, and revelatory, Becoming is the deeply personal reckoning of a woman of soul and substance who has steadily defied expectations—and whose story inspires us to do the same.',
+                        '600₹ (Paperback)', 
+                        'images/becoming.jfif',
+                        'Biography &nbsp War &nbsp Medival History &nbsp Non-fiction  &nbsp Memoir')">
+                            <img src="images\becoming.jfif" alt="Fiction Book 1">
+                            <p>Becoming</p>
+                        </div>
+                     </a>
+                  
+                  
+                </div>
+           
+            </div>
+            <button class="prev-btn" onclick="moveSlider('biographies', -1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlider('biographies', 1)">&#10095;</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //script to move slide 
+
+    function moveSlider(category, direction) {
+    const slider = document.querySelector(`#${category} .slider-items`);
+    const items = slider.children.length;
+    const maxIndex = items - 1;
+    let currentTransform = getComputedStyle(slider).transform;
+    let currentIndex = currentTransform === 'none' ? 0 : parseInt(currentTransform.split(',')[4] / -310);
+
+   
+    currentIndex += direction;
+
+    if (currentIndex > maxIndex) currentIndex = 0; 
+    if (currentIndex < 0) currentIndex = maxIndex; 
+
+    slider.style.transform = `translateX(${currentIndex * -310}px)`;
+    }
+
+
+
+
+
+//Script for lightBox
+
+    function openLightbox(title, author, description, price, imgSrc, genres) {
+     
+      document.getElementById('lightbox-title').innerText = title;
+      document.getElementById('lightbox-author').innerText = "by " + author;
+      document.getElementById('lightbox-description').innerText = description;
+      document.getElementById('lightbox-price').innerText = price;
+      document.getElementById('lightbox-img').src = imgSrc;
+      document.getElementById('genre-list').innerText = genres;
+  
+     
+      document.getElementById('lightbox').style.display = 'flex';
+  }
+  
+ 
+  function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+  }
+  
+ 
+  document.getElementById('add-to-cart').addEventListener('click', function() {
+      alert('Added to cart');
+      closeLightbox(); 
+  });
+  
+  document.getElementById('buy-now').addEventListener('click', function() {
+      alert('Proceeding to checkout');
+      window.location.href = "checkout.html";
+
+      closeLightbox();
+  });
+  
+
+
+  
+  //script to increase cart count and then storing a particular book in local storage
+
+    let cartCount = 0;
+  
+  
+  function updateCartCount() {
+      document.getElementById("cart-count-header").textContent = cartCount;
+  }
+  
+  function addToCart() {
+  
+      const title = document.getElementById('lightbox-title').innerText;
+      const author = document.getElementById('lightbox-author').innerText;
+      const price = document.getElementById('lightbox-price').innerText;
+      const imgSrc = document.getElementById('lightbox-img').src;
+  
+      const book = {
+          title,
+          author,
+          price,
+          imgSrc
+      };
+      
+     
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      cart.push(book);
+      
+  
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+  
+      cartCount++;
+      updateCartCount();
+      
+      
+      closeLightbox();
+  }
+  </script>
+    
+
+     
+<!--footer section starts-->
+<div class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>World wide shipping</h3>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;India</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;Europe</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;USA</a>
+        </div>
+
+        <div class="box">
+            <h3>Extra links</h3>
+            <a href="about.html"><i class="fas fa-arrow-right"></i>&nbsp;About US</a>
+            <a href="privacy.html"><i class="fas fa-arrow-right"></i>&nbsp;Privacy policy</a>
+            <a href="services.html"><i class="fas fa-arrow-right"></i>&nbsp;Our services</a>
+        </div>
+
+        <div class="box">
+            <h3>Contact info</h3>
+            <a href="#"><i class="fas fa-phone"></i>&nbsp;+91 8168-392-882</a>
+            <a href="#"><i class="fas fa-phone"></i>&nbsp;+91 9998-795-087</a>
+            <a href="#"><i class="fas fa-envelope"></i>&nbsp;goodread@gmail.com</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+</div>
+<!--footer-->
+
+     <script>
+        document.querySelector('.dropbtn').addEventListener('click', function(event) {
+        var dropdown = this.nextElementSibling;
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        event.stopPropagation();  // Prevent event from bubbling
+    });
+    
+    // Close the dropdown if the user clicks outside
+    document.addEventListener('click', function() {
+        var dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(function(dropdown) {
+            dropdown.style.display = 'none';
+        });
+    });
+    </script>
+    </body>
+    </html>
+
+
+
